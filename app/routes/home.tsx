@@ -15,12 +15,22 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export default function Home() {
-  const { auth} = usePuterStore();
+  const { auth, fs} = usePuterStore();
   const navigate = useNavigate()
 
   useEffect( () => {
     if(!auth.isAuthenticated)navigate('/auth?next=/');
   },[auth.isAuthenticated])
+
+  useEffect(() => {
+    const loadResumes = async () => {
+      for (const resume of resumes) {
+        const blob = await fs.read(resume.imagePath);
+        if(!blob) return;
+      }
+    }
+    loadResumes();
+  }, [])
 
   return <main className="bg-[url('/images/bg-main.svg')] bg-cover">
     <Navbar/>
