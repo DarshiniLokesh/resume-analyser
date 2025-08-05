@@ -4,7 +4,7 @@ import {resumes} from "../../constants";
 import ResumeCard from "~/components/ResumeCard";
 import {usePuterStore} from "~/lib/puter";
 import {useLocation, useNavigate} from "react-router";
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 
 
 export function meta({}: Route.MetaArgs) {
@@ -17,6 +17,7 @@ export function meta({}: Route.MetaArgs) {
 export default function Home() {
   const { auth, fs} = usePuterStore();
   const navigate = useNavigate()
+  const [resumeUrl, setResumeUrl] = useState('');
 
   useEffect( () => {
     if(!auth.isAuthenticated)navigate('/auth?next=/');
@@ -27,6 +28,8 @@ export default function Home() {
       for (const resume of resumes) {
         const blob = await fs.read(resume.imagePath);
         if(!blob) return;
+        let url = URL.createObjectURL(blob);
+        setResumeUrl(url);
       }
     }
     loadResumes();
