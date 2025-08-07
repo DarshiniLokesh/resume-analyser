@@ -1,16 +1,20 @@
 import { Link } from "react-router";
 import ScoreCircle from "~/components/ScoreCircle";
+import StatusBadge from "~/components/StatusBadge";
 import { useEffect, useState } from "react";
 import { usePuterStore } from "~/lib/puter";
 
 
 
-const ResumeCard = ({ resume: { id, companyName, jobTitle, feedback, imagePath } }: { resume: Resume }) => {
+const ResumeCard = ({ resume: { id, companyName, jobTitle, feedback, imagePath, status } }: { resume: Resume }) => {
     return (
         <Link to={`/resume/${id}`} className="resume-card animate-in fade-in duration-1000">
             <div className="resume-card-header">
                 <div className="flex flex-col gap-2">
-                    {companyName && <h2 className="!text-black font-bold break-words">{companyName}</h2>}
+                    <div className="flex items-center gap-2">
+                        {companyName && <h2 className="!text-black font-bold break-words">{companyName}</h2>}
+                        {status && <StatusBadge status={status} />}
+                    </div>
                     {jobTitle && <h3 className="text-lg break-words text-gray-500">{jobTitle}</h3>}
                     {!companyName && !jobTitle && <h2 className="!text-black font-bold">Resume</h2>}
                 </div>

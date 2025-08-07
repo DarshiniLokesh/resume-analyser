@@ -12,6 +12,7 @@ interface Resume {
     imagePath: string;
     resumePath: string;
     rows: number;
+    status?: "applied" | "interview" | "rejected" | "offer" | "pending";
     feedback: Feedback;
 }
 

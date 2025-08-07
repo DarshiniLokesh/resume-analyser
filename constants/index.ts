@@ -7,6 +7,7 @@ export const resumes: Resume[] = [
         imagePath: "/images/resume_01.png",
         resumePath: "/resumes/resume-1.pdf",
         rows: 0,
+        status: "applied",
         feedback: {
             overallScore: 85,
             ATS: {
@@ -38,6 +39,7 @@ export const resumes: Resume[] = [
         imagePath: "/images/resume_02.png",
         resumePath: "/resumes/resume-2.pdf",
         rows : 0,
+        status: "interview",
         feedback: {
             overallScore: 55,
             ATS: {
@@ -69,6 +71,7 @@ export const resumes: Resume[] = [
         imagePath: "/images/resume_03.png",
         resumePath: "/resumes/resume-3.pdf",
         rows: 0,
+        status: "rejected",
         feedback: {
             overallScore: 75,
             ATS: {
@@ -100,6 +103,7 @@ export const resumes: Resume[] = [
     imagePath: "/images/resume_01.png",
     resumePath: "/resumes/resume-1.pdf",
     rows : 0,
+    status: "applied",
     feedback: {
     overallScore: 85,
         ATS: {
@@ -131,6 +135,7 @@ export const resumes: Resume[] = [
         imagePath: "/images/resume_03.png",
         resumePath: "/resumes/resume-3.pdf",
         rows: 0,
+        status: "applied",
         feedback: {
             overallScore: 75,
             ATS: {
@@ -162,6 +167,7 @@ export const resumes: Resume[] = [
         imagePath: "/images/resume_02.png",
         resumePath: "/resumes/resume-2.pdf",
         rows : 0,
+        status: "offer",
         feedback: {
             overallScore: 55,
             ATS: {
